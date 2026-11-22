@@ -13,8 +13,7 @@ public class DriveForwardHalfPower extends LinearOpMode {
         DcMotor leftDrive  = hardwareMap.get(DcMotor.class, "leftDrive");
         DcMotor rightDrive = hardwareMap.get(DcMotor.class, "rightDrive");
 
-        // Matches your TeleOp motor direction
-        leftDrive.setDirection(DcMotorSimple.Direction.REVERSE);
+
 
         // Brakes cleanly when power is set to 0
         leftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
