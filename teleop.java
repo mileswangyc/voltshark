@@ -15,6 +15,9 @@ public class MainTeleOp extends LinearOpMode {
 
         leftDrive.setDirection(DcMotorSimple.Direction.REVERSE);
 
+        DcMotor pollenPusher = hardwareMap.get(DcMotor.class, "pollenPusher");
+        pollenPusher.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
         waitForStart();
         
         while (opModeIsActive()) {
@@ -23,6 +26,14 @@ public class MainTeleOp extends LinearOpMode {
 
             leftDrive.setPower(leftPower);
             rightDrive.setPower(rightPower);
+
+            if (gamepad1.dpad_up) {
+                pollenPusher.setPower(0.6); 
+            } else if (gamepad1.dpad_down) {
+                pollenPusher.setPower(-0.6); 
+            } else {
+                pollenPusher.setPower(0.0);  
+            }
         }
     }
 }
