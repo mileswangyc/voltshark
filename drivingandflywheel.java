@@ -10,7 +10,7 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 public class MainTeleOp extends LinearOpMode {
 
    
-    static final double TICKS_PER_REV = 560.0;
+    //static final double TICKS_PER_REV = 560.0;
 
     @Override
     public void runOpMode() {
@@ -25,9 +25,9 @@ public class MainTeleOp extends LinearOpMode {
         flywheel.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT); // Lets wheel coast smoothly
 
         
-        double targetRPM = 240.0;
-        double targetVelocity = (targetRPM * TICKS_PER_REV) / 60.0;
-
+        //double targetRPM = 240.0;
+        //double targetVelocity = (targetRPM * TICKS_PER_REV) / 60.0;
+         double targetVelocity = 2240;
         waitForStart();
 
         while (opModeIsActive()) {
@@ -45,9 +45,8 @@ public class MainTeleOp extends LinearOpMode {
             }
 
            
-            double currentRPM = (flywheel.getVelocity() * 60.0) / TICKS_PER_REV;
-            telemetry.addData("Target RPM", targetRPM);
-            telemetry.addData("Actual RPM", "%.1f", currentRPM);
+            telemetry.addData("Target Velocity", targetVelocity);
+            telemetry.addData("Actual Velocity", "%.1f", flywheel.getVelocity());
             telemetry.update();
         }
     }
