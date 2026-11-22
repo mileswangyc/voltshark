@@ -16,7 +16,11 @@ public class MainTeleOp extends LinearOpMode {
         leftDrive.setDirection(DcMotorSimple.Direction.REVERSE);
 
         waitForStart();
-
+       
+        pollenPusher.setPower(0.6);  
+        sleep(1500);                
+        pollenPusher.setPower(0.0);
+        
         while (opModeIsActive()) {
             double leftPower  = -gamepad1.left_stick_y;
             double rightPower = gamepad1.right_stick_y;
