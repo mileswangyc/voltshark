@@ -3,6 +3,8 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.CRServo;
+
 
 @TeleOp(name = "MainTeleOp")
 public class MainTeleOp extends LinearOpMode {
@@ -15,7 +17,7 @@ public class MainTeleOp extends LinearOpMode {
 
         leftDrive.setDirection(DcMotorSimple.Direction.REVERSE);
 
-        DcMotor pollenPusher = hardwareMap.get(DcMotor.class, "pollenPusher");
+        CRServo pollenPusher = hardwareMap.get(CRServo.class, "pollenPusher");
         pollenPusher.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         waitForStart();
