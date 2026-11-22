@@ -22,7 +22,7 @@ public class DriveForwardHalfPower extends LinearOpMode {
         waitForStart();
 
         if (opModeIsActive()) {
-            leftDrive.setPower(0.5);
+            leftDrive.setPower(-0.5);
             rightDrive.setPower(0.5);
             sleep(1000);
 
