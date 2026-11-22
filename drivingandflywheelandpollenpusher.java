@@ -27,7 +27,6 @@ public class drivingandflywheelandpollenpusher extends LinearOpMode {
         flywheel.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         flywheel.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT); // Lets wheel coast smoothly
 
-        // Pollen pusher
         Servo pollenPusher = hardwareMap.get(Servo.class, "pollenPusher");
         pollenPusher.setPosition(PUSHER_RETRACTED);
 
@@ -38,20 +37,21 @@ public class drivingandflywheelandpollenpusher extends LinearOpMode {
 
         while (opModeIsActive()) {
 
-            // Driving (gamepad 1)
+            // ---------- GAMEPAD 1: DRIVING ----------
             double leftPower = -gamepad1.left_stick_y;
             double rightPower = gamepad1.right_stick_y;
             leftDrive.setPower(leftPower);
             rightDrive.setPower(rightPower);
 
-            // Flywheel (gamepad 1)
-            if (gamepad1.a) {
+            // ---------- GAMEPAD 2: MECHANISMS ----------
+            // Flywheel: hold A
+            if (gamepad2.a) {
                 flywheel.setVelocity(targetVelocity);
             } else {
                 flywheel.setVelocity(0);
             }
 
-            // Pollen pusher (gamepad 2)
+            // Pollen pusher: X = push, B = retract
             if (gamepad2.x) {
                 pollenPusher.setPosition(PUSHER_EXTENDED);
             } else if (gamepad2.b) {
