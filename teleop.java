@@ -13,13 +13,10 @@ public class MainTeleOp extends LinearOpMode {
         DcMotor leftDrive  = hardwareMap.get(DcMotor.class, "leftDrive");
         DcMotor rightDrive = hardwareMap.get(DcMotor.class, "rightDrive");
 
-        leftDrive.setDirection(DcMotor.Direction.REVERSE);
-        rightDrive.setDirection(DcMotor.Direction.FORWARD);
-
         waitForStart();
 
         while (opModeIsActive()) {
-            double leftPower  = -gamepad1.left_stick_y;
+            double leftPower  = gamepad1.left_stick_y;
             double rightPower = -gamepad1.right_stick_y;
 
             leftDrive.setPower(leftPower);
