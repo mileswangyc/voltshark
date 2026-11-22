@@ -23,10 +23,6 @@ public class DriveForwardHalfPower extends LinearOpMode {
         waitForStart();
 
         if (opModeIsActive()) {
-          
-            pollenPusher.setPower(0.6);  
-            sleep(1500);                 
-            pollenPusher.setPower(0.0);
             
             leftDrive.setPower(-0.5);
             rightDrive.setPower(0.5);
@@ -34,6 +30,12 @@ public class DriveForwardHalfPower extends LinearOpMode {
 
             leftDrive.setPower(0);
             rightDrive.setPower(0);
+
+            sleep(10000);
+
+            pollenPusher.setPower(0.6);  
+            sleep(1500);                 
+            pollenPusher.setPower(0.0);
         }
     }
 }
