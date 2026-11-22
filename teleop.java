@@ -19,7 +19,7 @@ public class MainTeleOp extends LinearOpMode {
 
         while (opModeIsActive()) {
             double leftPower  = -gamepad1.left_stick_y;
-            double rightPower = -gamepad1.right_stick_y;
+            double rightPower = gamepad1.right_stick_y;
 
             leftDrive.setPower(leftPower);
             rightDrive.setPower(rightPower);
